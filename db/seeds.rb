@@ -11,14 +11,16 @@ inventory_data = CSV.read('inventory_data.csv', { encoding: "UTF-8", headers: tr
 hashed_inventory_data = inventory_data.map { |d| d.to_hash }
 
 hashed_inventory_data.each do |i|
+  current_unit_cost = i['Current Unit Cost'] ? BigDecimal.new(i['Current Unit Cost'].to_s.tr('$', '')) : nil
+
   Inventory.create(
     category: i['Category'],
-    sub_category: i['Sub-category'],
+    sub_category: i['Sub-Category'],
     budget_sub_category: i['Budget Sub-Category'],
     product_name: i['Product Name'],
     product_description: i['Product Description'],
     brand: i['Brand'],
-    current_unit_cost: i['Current Unit Cost'],
+    current_unit_cost: current_unit_cost,
     warehoused_quantity: i['Warehoused Quantity (DNE)']
   )
 end

@@ -32,7 +32,7 @@
 
 <p>
   <strong>Current unit cost:</strong>
-  <%= @inventory.current_unit_cost %>
+  <%= @inventory.current_unit_cost_display %>
 </p>
 
 <p>
@@ -40,5 +40,4 @@
   <%= @inventory.warehoused_quantity %>
 </p>
 
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<%= link_to 'Back to inventory list', inventories_path %>

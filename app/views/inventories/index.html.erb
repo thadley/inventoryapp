@@ -26,11 +26,9 @@
         <td><%= inventory.product_name %></td>
         <td><%= inventory.product_description %></td>
         <td><%= inventory.brand %></td>
-        <td><%= inventory.current_unit_cost %></td>
-        <td><%= inventory.warehoused_quantity %></td>
+        <td class="text-center"><%= inventory.current_unit_cost_display %></td>
+        <td class="text-center"><%= inventory.warehoused_quantity %></td>
         <td><%= link_to 'Show', inventory %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
