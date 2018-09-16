@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  sub_category: MyString
+  budget_sub_category: MyString
+  product_name: MyString
+  product_description: MyString
+  brand: MyString
+  current_unit_cost: 
+  warehoused_quantity: 1
+
+two:
+  category: MyString
+  sub_category: MyString
+  budget_sub_category: MyString
+  product_name: MyString
+  product_description: MyString
+  brand: MyString
+  current_unit_cost: 
+  warehoused_quantity: 1

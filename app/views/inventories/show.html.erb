@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @inventory.category %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @inventory.sub_category %>
+</p>
+
+<p>
+  <strong>Budget sub category:</strong>
+  <%= @inventory.budget_sub_category %>
+</p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @inventory.product_name %>
+</p>
+
+<p>
+  <strong>Product description:</strong>
+  <%= @inventory.product_description %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @inventory.brand %>
+</p>
+
+<p>
+  <strong>Current unit cost:</strong>
+  <%= @inventory.current_unit_cost %>
+</p>
+
+<p>
+  <strong>Warehoused quantity:</strong>
+  <%= @inventory.warehoused_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>
