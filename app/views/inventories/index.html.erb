@@ -5,14 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Category</th>
-      <th>Sub category</th>
-      <th>Budget sub category</th>
-      <th>Product name</th>
-      <th>Product description</th>
-      <th>Brand</th>
-      <th>Current unit cost</th>
-      <th>Warehoused quantity</th>
+      <th><%= sortable "category", "Category" %></th>
+      <th><%= sortable "sub_category", "Sub category" %></th>
+      <th><%= sortable "budget_sub_category", "Budget sub category" %></th>
+      <th><%= sortable "product_name", "Product name" %></th>
+      <th><%= sortable "product_description", "Product description" %></th>
+      <th><%= sortable "brand", "Brand" %></th>
+      <th><%= sortable "current_unit_cost", "Current unit cost" %></th>
+      <th><%= sortable "warehoused_quantity", "Warehoused quantity" %></th>
+      <th>Properties w/ inventory</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
         <td><%= inventory.brand %></td>
         <td class="text-center"><%= inventory.current_unit_cost_display %></td>
         <td class="text-center"><%= inventory.warehoused_quantity %></td>
+        <td><%= inventory.properties.map(&:address).uniq.join(", ") %></td>
         <td><%= link_to 'Show', inventory %></td>
       </tr>
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_194456) do
+ActiveRecord::Schema.define(version: 2018_09_16_225221) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 2018_09_16_194456) do
     t.integer "warehoused_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories_properties", id: false, force: :cascade do |t|
+    t.integer "inventory_id", null: false
+    t.integer "property_id", null: false
+    t.index ["inventory_id", "property_id"], name: "index_inventories_properties_on_inventory_id_and_property_id"
   end
 
   create_table "properties", force: :cascade do |t|

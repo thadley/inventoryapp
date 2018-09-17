@@ -1,12 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
-  # GET /carts
-  # GET /carts.json
-  def index
-    @carts = Cart.all
-  end
-
   # GET /carts/1
   # GET /carts/1.json
   def show
@@ -19,16 +13,27 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
+    @cart.update(cart_params)
+
+    respond_to do |format|
+      if @cart.save
+        format.html { redirect_to @cart, notice: 'Inventory was added to cart.' }
+        format.json { render :show, status: :created, location: @cart }
+      else
+        format.html { render :new }
+        format.json { render json: @cart.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /carts
   # POST /carts.json
-  def create
+  def checkout
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart, notice: 'Inventory was successfully assigned.' }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -69,6 +74,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.fetch(:cart, {})
+      params.fetch(:cart, {:inventory})
     end
 end

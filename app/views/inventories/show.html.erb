@@ -40,4 +40,4 @@
   <%= @inventory.warehoused_quantity %>
 </p>
 
-<%= link_to 'Back to inventory list', inventories_path %>
+<%= link_to 'Back to inventory list', inventories_url({direction: 'asc', sort: 'category'}) %>

@@ -4,7 +4,7 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
-    @inventories = Inventory.all
+    @inventories = Inventory.order(params[:sort] + ' ' + params[:direction])
   end
 
   # GET /inventories/1
